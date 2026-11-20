@@ -30,6 +30,6 @@ Não habilitar pacientes reais antes de: revisão de ameaça; auditoria de isola
 
 ## Situação observada na configuração inicial
 
-- Netlify: projeto com exigência de SSO; perfil da conta retornou MFA desativado.
-- Cloudflare: configuração de conta retornou exigência global de MFA desativada.
-- A liberação pública do projeto Netlify não foi aplicada: a revisão automática identificou que a ferramenta alteraria proteção de todos os deploys do site. Manter previews protegidos até que uma configuração de escopo restrito possa ser confirmada.
+- Netlify: projeto meditrica está configurado para acesso público; essa configuração foi conferida após a alteração do proprietário. Não há deploy publicado no momento.
+- Perfil da conta Netlify retornou MFA desativado; a configuração de conta Cloudflare também indicou MFA global desativado.
+- Uma tentativa anterior de alterar controles via ferramenta foi rejeitada porque afetaria todos os deploys. A configuração pública foi alterada pelo proprietário posteriormente e confirmada por leitura. Como o projeto está público, não publicar dados reais nem conteúdo privado neste site.
