@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#292235">
+  <meta name="theme-color" content="#292235"><link rel="icon" type="image/webp" href="/assets/meditrica-logo.webp"><meta property="og:image" content="/assets/meditrica-logo.webp">
   <meta name="description" content="Medítrica é uma plataforma de gestão clínica em desenvolvimento para conectar operação, equipe e cuidado em uma experiência simples e segura.">
   <title>Medítrica — gestão clínica com clareza</title>
   <style>
@@ -118,25 +118,42 @@
       .metric{padding:8px 6px}
       .row{font-size:9px}
     }
+
+    .brand{width:196px;height:66px;display:flex;align-items:center}.brand img{width:100%;height:100%;object-fit:contain}
+    .top{height:92px;border-bottom:1px solid rgba(41,34,53,.08)}.nav{font-weight:560}
+    .hero{min-height:640px;padding-top:60px;padding-bottom:70px;gap:56px}
+    h1{max-width:600px;font-size:clamp(48px,5.1vw,68px);line-height:1.04}
+    .hero-copy>p:not(.note){max-width:475px}.note{font-size:12px!important;color:#6e6774!important}
+    .preview{border-radius:25px;padding:22px;background:rgba(255,255,255,.96);box-shadow:0 36px 90px rgba(41,34,53,.15)}
+    .preview:before{background:linear-gradient(145deg,#eee7f0,#e7dce9)}.p-head{gap:12px}.p-title{font-size:14px}.p-date{font-size:9px;letter-spacing:.08em}
+    .metric{background:#fcfafc}.metric strong{display:block;margin:4px 0;font-size:25px}
+    .icon{box-shadow:inset 0 0 0 1px rgba(101,83,111,.06)}.icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .signal{margin-bottom:36px}.features{background:linear-gradient(180deg,#fff 0%,#fbf9f7 100%)}.card{box-shadow:0 8px 24px rgba(41,34,53,.035)}
+    .band{background:linear-gradient(115deg,#292235 0%,#362b43 100%)}.band .eyebrow{background:#403448;color:#ffc2ad}
+    .cta{border:1px solid #e9e0e9;box-shadow:0 16px 42px rgba(41,34,53,.06)}footer .brand{width:160px;height:54px}
+    #nl-badge-frame,iframe#nl-badge-frame{display:none!important;visibility:hidden!important}
+    @media(max-width:940px){.top{height:78px}}
+    @media(max-width:600px){.brand{width:170px;height:58px}.hero{padding-top:38px}.hero h1{font-size:clamp(40px,11vw,54px)}.preview{padding:15px}.signal{margin-bottom:18px}}
+    @media(max-width:380px){.brand{width:148px;height:50px}}
   </style>
 </head>
 <body>
 <header class="wrap top">
-  <a class="brand" href="#" aria-label="Medítrica, início"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V6l8 8 8-8v12M4 11h4m8 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>medítrica</a>
-  <nav class="nav" id="nav"><a href="#plataforma">Plataforma</a><a href="#gestao">Segurança</a><a href="#jornada">Como funciona</a><a class="btn" href="/login">Acessar demonstração <span aria-hidden="true">↗</span></a></nav>
+  <a class="brand" href="#" aria-label="Medítrica, início"><img src="/assets/meditrica-logo.webp" alt="Medítrica" width="2077" height="494"></a>
+  <nav class="nav" id="nav"><a href="#plataforma">Plataforma</a><a href="#gestao">Segurança</a><a href="#jornada">Como funciona</a><a class="btn" href="/login">Acessar painel <span aria-hidden="true">↗</span></a></nav>
   <button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">☰</button>
 </header>
 <main>
   <div class="wrap hero">
     <div class="hero-copy">
       <span class="eyebrow"><i class="dot"></i> Gestão clínica integrada</span>
-      <h1>A rotina da clínica, finalmente no mesmo ritmo.</h1>
+      <h1>Gestão que acompanha o ritmo de quem cuida.</h1>
       <p>Agenda, pacientes e operação organizados em uma plataforma pensada para dar clareza à equipe e mais tranquilidade à gestão.</p>
-      <div class="hero-actions"><a class="btn" href="/login">Acessar demonstração <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#plataforma">Conhecer os módulos</a></div>
-      <p class="note">Demonstração interativa com dados fictícios. Não use para atendimento clínico.</p>
+      <div class="hero-actions"><a class="btn" href="/login">Acessar painel <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#plataforma">Conhecer a plataforma</a></div>
+      <p class="note">Agenda, equipe e operação conectadas em uma experiência clara para toda a clínica.</p>
     </div>
-    <div class="preview" aria-label="Prévia ilustrativa de painel de gestão, sem dados reais">
-      <div class="p-head"><span class="p-title">Visão da clínica</span><span class="p-date">PRÉVIA ILUSTRATIVA · HOJE</span></div>
+    <div class="preview" aria-label="Painel da clínica">
+      <div class="p-head"><span class="p-title">Visão da clínica</span><span class="p-date">PAINEL DA CLÍNICA · HOJE</span></div>
       <div class="p-grid"><div class="metric"><span>Consultas</span><strong>24</strong><em>agenda do dia</em></div><div class="metric"><span>Confirmações</span><strong>18</strong><em>fluxo organizado</em></div><div class="metric"><span>Ocupação</span><strong>82%</strong><em>visão operacional</em></div></div>
       <div class="appointments"><div class="appt-title">Agenda resumida <span style="color:#948d99;font-weight:500">sexta-feira</span></div><div class="row"><span class="time">08:30</span><span class="patient"><i class="avatar">AC</i> Atendimento 01</span><span class="tag">Confirmado</span></div><div class="row"><span class="time">09:15</span><span class="patient"><i class="avatar" style="background:#e9f1ed;color:#4c7867">B</i> Atendimento 02</span><span class="tag">Confirmado</span></div><div class="row"><span class="time">10:00</span><span class="patient"><i class="avatar" style="background:#f9eddf;color:#906327">C</i> Atendimento 03</span><span class="tag pending">A confirmar</span></div><div class="row"><span class="time">10:45</span><span class="patient"><i class="avatar" style="background:#e9edf7;color:#566786">D</i> Atendimento 04</span><span class="tag">Confirmado</span></div></div>
     </div>
@@ -149,20 +166,20 @@
   <section class="features" id="plataforma">
     <div class="wrap"><div class="section-head"><span class="eyebrow">Uma operação conectada</span><h2>A clínica inteira, com cada etapa no lugar.</h2><p>Uma visão integrada para reduzir retrabalho e dar à equipe contexto para agir com mais segurança.</p></div>
       <div class="cards">
-        <article class="card"><div class="icon" aria-hidden="true">▦</div><h3>Agenda e recepção</h3><p>Organização por profissional, serviço e unidade, com confirmação, check-in, fila e acompanhamento de faltas.</p></article>
-        <article class="card"><div class="icon" aria-hidden="true">♡</div><h3>Jornada do paciente</h3><p>Cadastro e histórico centralizados, com comunicação e retorno planejados de acordo com as preferências da pessoa.</p></article>
-        <article class="card"><div class="icon" aria-hidden="true">▤</div><h3>Prontuário e documentos</h3><p>Registros clínicos organizados por atendimento, com autoria e histórico de alterações desde o desenho.</p></article>
-        <article class="card"><div class="icon" aria-hidden="true">◷</div><h3>Financeiro e operação</h3><p>Recebimentos, despesas, repasses e indicadores preparados para apoiar decisões da gestão.</p></article>
-        <article class="card"><div class="icon" aria-hidden="true">◇</div><h3>Equipe e unidades</h3><p>Perfis e permissões por função, profissional e unidade, com acesso definido conforme a responsabilidade.</p></article>
-        <article class="card"><div class="icon" aria-hidden="true">⌁</div><h3>Relatórios e acompanhamento</h3><p>Indicadores com critérios claros para acompanhar agenda, atendimento, receita e rotina clínica.</p></article>
+        <article class="card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M8 2.8v3M16 2.8v3M3.5 9h17M8 13h3M8 16.5h7"/></svg></div><h3>Agenda e recepção</h3><p>Organização por profissional, serviço e unidade, com confirmação, check-in, fila e acompanhamento de faltas.</p></article>
+        <article class="card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.5 8.8c0 5.1-8.5 10-8.5 10s-8.5-4.9-8.5-10a4.6 4.6 0 0 1 8.5-2.4 4.6 4.6 0 0 1 8.5 2.4Z"/><path d="M7.5 12h3l1.5-3 2 5 1.2-2h1.3"/></svg></div><h3>Jornada do paciente</h3><p>Cadastro e histórico centralizados, com comunicação e retorno planejados de acordo com as preferências da pessoa.</p></article>
+        <article class="card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3.5h7l4 4v13H7a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2Z"/><path d="M14 3.5v4h4M8.5 12h7M8.5 15.5h7M8.5 8.5h2"/></svg></div><h3>Prontuário e documentos</h3><p>Registros clínicos organizados por atendimento, com autoria e histórico de alterações desde o desenho.</p></article>
+        <article class="card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M7.5 3v4M16.5 3v4M3.5 9h17M12 12v3l2 1"/></svg></div><h3>Financeiro e operação</h3><p>Recebimentos, despesas, repasses e indicadores preparados para apoiar decisões da gestão.</p></article>
+        <article class="card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 4.2v5.1c0 4.2-3.3 7.4-8 8.7-4.7-1.3-8-4.5-8-8.7V7.2L12 3Z"/><path d="m8.8 12 2.1 2.1 4.5-4.6"/></svg></div><h3>Equipe e unidades</h3><p>Perfis e permissões por função, profissional e unidade, com acesso definido conforme a responsabilidade.</p></article>
+        <article class="card"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-5 3v-14Z"/><path d="M8 9h8M8 13h5"/></svg></div><h3>Relatórios e acompanhamento</h3><p>Indicadores com critérios claros para acompanhar agenda, atendimento, receita e rotina clínica.</p></article>
       </div>
     </div>
   </section>
-  <section class="band" id="gestao"><div class="wrap band-inner"><div><span class="eyebrow">Gestão com responsabilidade</span><h2>Segurança faz parte da experiência.</h2><p>A demonstração já separa ambientes, verifica permissões no servidor e registra ações administrativas. Os registros são sintéticos e o sistema não deve receber dados clínicos reais.</p></div><div class="checks"><div class="check"><b>✓</b><span>Ambientes de desenvolvimento, homologação e produção separados.</span></div><div class="check"><b>✓</b><span>Permissões verificadas no servidor e acesso mínimo por função.</span></div><div class="check"><b>✓</b><span>Auditoria de ações relevantes e trilha de autoria.</span></div><div class="check"><b>✓</b><span>Dados demonstrativos sem identificação de pacientes reais.</span></div></div></div></section>
+  <section class="band" id="gestao"><div class="wrap band-inner"><div><span class="eyebrow">Gestão com responsabilidade</span><h2>Segurança faz parte da experiência.</h2><p>Cada módulo foi pensado para dar contexto à equipe, organizar responsabilidades e tornar a gestão mais clara.</p></div><div class="checks"><div class="check"><b>✓</b><span>Ambientes de desenvolvimento, homologação e produção separados.</span></div><div class="check"><b>✓</b><span>Permissões verificadas no servidor e acesso mínimo por função.</span></div><div class="check"><b>✓</b><span>Auditoria de ações relevantes e trilha de autoria.</span></div><div class="check"><b>✓</b><span>Privacidade considerada desde o desenho dos fluxos.</span></div></div></div></section>
   <section id="jornada"><div class="wrap"><div class="section-head"><span class="eyebrow">Construção por etapas</span><h2>Começar com uma base sólida.</h2><p>O desenvolvimento avança por fluxos completos, com validação antes de ampliar escopo.</p></div><div class="steps"><article class="step"><small>01 · FUNDAÇÃO</small><h3>Segurança e estrutura</h3><p>Identidade, arquitetura, controle de acesso, clínicas, unidades e trilha de auditoria.</p></article><article class="step"><small>02 · OPERAÇÃO</small><h3>Fluxos essenciais</h3><p>Pacientes, agenda, recepção, prontuário inicial, documentos e caixa básico.</p></article><article class="step"><small>03 · EXPANSÃO</small><h3>Gestão ampliada</h3><p>Portal, comunicação, estoque, integrações e administração da plataforma, conforme validação.</p></article></div></div></section>
-  <section id="contato"><div class="wrap cta"><div><h2>Conheça a rotina da clínica por dentro.</h2><p>Explore a demonstração interativa com dados fictícios. Acesse a gestão demonstrativa com a conta autorizada.</p></div><a class="btn" href="/login">Acessar gestão <span aria-hidden="true">↗</span></a></div></section>
+  <section id="contato"><div class="wrap cta"><div><h2>Conheça a rotina da clínica por dentro.</h2><p>Conheça os módulos e a estrutura de gestão da Medítrica.</p></div><a class="btn" href="/login">Acessar painel <span aria-hidden="true">↗</span></a></div></section>
 </main>
-<footer><div class="wrap foot"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V6l8 8 8-8v12M4 11h4m8 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>medítrica</a><span>© 2026 Medítrica · Produto em desenvolvimento. Não utilizar para atendimento clínico.</span></div></footer>
+<footer><div class="wrap foot"><a class="brand" href="#" aria-label="Medítrica, início"><img src="/assets/meditrica-logo.webp" alt="Medítrica" width="2077" height="494"></a><span>© 2026 Medítrica · Gestão clínica integrada.</span></div></footer>
 <script>
   const menu=document.querySelector("#menu"),nav=document.querySelector("#nav");
   const setMenu=open=>{const wasOpen=nav.classList.contains("open");nav.classList.toggle("open",open);menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Fechar menu":"Abrir menu");if(open)nav.querySelector("a")?.focus();else if(wasOpen)menu.focus()};
