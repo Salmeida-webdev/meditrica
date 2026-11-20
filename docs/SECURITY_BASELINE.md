@@ -1,35 +1,32 @@
-# Medítrica — baseline de segurança e privacidade
+# Medítrica — baseline de segurança da demonstração
 
-Este baseline orienta a implementação; não é certificação nem declaração de conformidade legal.
+Status: controles iniciais ativos para a demonstração com dados sintéticos. Este documento não é auditoria independente, certificação, parecer legal ou declaração de conformidade.
 
-## Dados de saúde e privacidade
+## Controles implementados
 
-- Tratar dados de saúde como dados pessoais sensíveis; coletar somente o necessário para finalidade definida.
-- Separar dados da conta SaaS, cadastros administrativos e registros clínicos.
-- Definir papéis de controlador/operador, bases legais, retenção, atendimento aos titulares, contratos e resposta a incidentes com assessoria especializada antes da produção.
-- Não usar dados reais em seed, screenshots, previews, logs ou suporte.
-- Não enviar conteúdo clínico a ferramentas de analytics, logs de aplicação ou IA sem análise específica, base legal e controles apropriados.
+- Os ambientes D1 `meditrica-dev`, `meditrica-staging` e `meditrica-prod` estão separados e contêm apenas registros fictícios.
+- Landing e área de gestão são servidas no Netlify. A função same-origin mantém o token fora do JavaScript e usa cookie `Secure`, `HttpOnly`, `SameSite=Lax`, `Path=/`, com validade de oito horas.
+- Token de sessão opaco e aleatório; no D1 fica somente seu SHA-256, com expiração e revogação por logout.
+- Senha nunca é armazenada em texto aberto no repositório ou no D1. O navegador deriva PBKDF2-HMAC-SHA256 com 310.000 iterações; o Worker verifica um HMAC protegido por `AUTH_PEPPER`, configurado como secret binding separado em cada Worker.
+- O Worker aplica limite de oito tentativas inválidas por identidade e janela de 15 minutos, erros de login genéricos e limite de payload na função Netlify.
+- Rotas e campos aceitos são allowlist. O Worker valida papel, sessão, tenant e referências a registros do mesmo tenant; consultas são parametrizadas.
+- Escritas e arquivamentos criam eventos de auditoria. O arquivamento mantém o registro recuperável.
+- Cabeçalhos de segurança estão configurados no Netlify. A CSP atual permite scripts inline por compatibilidade com as páginas existentes; não equivale a CSP estrita.
+- Dados demonstrativos não são enviados a analytics externos. Contatos usam domínio reservado `example.invalid`.
 
-## Controles obrigatórios antes de dados reais
+## Restrições atuais
 
-- MFA ativado nas contas de GitHub, Cloudflare e Netlify; revisar sessões e tokens.
-- Senha que foi colada em conversa deve ser trocada imediatamente e não será reutilizada.
-- Tenant e unidade são verificados no servidor em cada leitura/escrita; nunca confiar no tenant enviado pelo navegador.
-- Permissões por papel e escopo são negadas por padrão e checadas no servidor.
-- Cookies de sessão Secure, HttpOnly e SameSite; proteção CSRF quando aplicável; rotação, expiração, revogação e recuperação segura de conta.
-- Limites de tentativas, rate limiting, validação de payload, statements parametrizados, cabeçalhos de segurança e política CSP.
-- Trilha de auditoria para acesso e alteração de informação clínica, documentos, permissões e exportações; proteger contra alteração por usuários comuns.
-- Criptografia em trânsito e repouso; anexos em storage privado; links temporários e autorizados.
-- Segredos fora do repositório; escopo mínimo; rotação e inventário de chaves.
-- Backups, retenção, restauração ensaiada, plano de continuidade e procedimento de incidente.
-- Dependências e builds revisados; proteção de branch; revisão de mudanças; bloqueio de deploy com falha de build ou credenciais detectadas.
+- Uma conta proprietária e um tenant demonstrativo. Ainda não há convite ou administração de usuários, recuperação de conta ou MFA dentro do produto.
+- O app não é pronto para produção clínica, não foi avaliado por auditoria externa e não deve receber dados reais de pacientes.
+- O prontuário contém placeholders sem conteúdo assistencial; modelos de documentos não são documentos médicos válidos.
+- A trilha de auditoria não é storage WORM nem imutável; não há rotina de backup/restore ensaiada nesta demo.
+- A chave Pepper fica no secret store Cloudflare; requer rotação planejada e procedimentos de recuperação que ainda não estão automatizados.
+- Um verificador de login é uma credencial equivalente durante o transporte; proteger o site contra XSS e scripts de terceiros é essencial.
 
-## Gatilhos de produção
+## Gatilhos antes de dados reais
 
-Não habilitar pacientes reais antes de: revisão de ameaça; auditoria de isolamento multi-tenant; validação de autenticação/recuperação; revisão LGPD/contratos; política de retenção; teste de restauração; monitoramento de erros sem conteúdo clínico; procedimento de resposta a incidentes; aprovação do responsável clínico e operacional.
+Revisão independente de ameaça, autorização e isolamento multi-tenant; XSS/CSP; MFA e recuperação; rotação de segredos; backup e restauração ensaiados; revisão de dependências e pipeline; avaliação LGPD, contratos, base legal e retenção; processo de incidentes; monitoramento sem conteúdo clínico; aprovação dos responsáveis clínico e operacional.
 
-## Situação observada na configuração inicial
+## Credencial da demonstração
 
-- Netlify: projeto meditrica está configurado para acesso público; essa configuração foi conferida após a alteração do proprietário. Não há deploy publicado no momento.
-- Perfil da conta Netlify retornou MFA desativado; a configuração de conta Cloudflare também indicou MFA global desativado.
-- Uma tentativa anterior de alterar controles via ferramenta foi rejeitada porque afetaria todos os deploys. A configuração pública foi alterada pelo proprietário posteriormente e confirmada por leitura. Como o projeto está público, não publicar dados reais nem conteúdo privado neste site.
+A senha fornecida pelo proprietário foi usada apenas para provisionar a conta demonstrativa. Como ela foi compartilhada na conversa e pode estar em uso em outros serviços, não deve ser reutilizada fora desta demo e deve ser trocada depois da demonstração. Nenhum segredo está versionado no Git.

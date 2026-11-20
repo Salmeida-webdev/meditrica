@@ -1,44 +1,41 @@
-# Medítrica — arquitetura inicial
+# Medítrica — arquitetura da demo operacional
 
-Status: fundação em planejamento e provisionamento. Este documento não declara o produto pronto para uso clínico.
+## Topologia
 
-## Decisões iniciais
+| Camada | Serviço | Escopo |
+| --- | --- | --- |
+| Landing, login e gestão | Netlify static | HTML responsivo; publicação via GitHub privado |
+| Proxy de sessão | Netlify Function | Mesmo domínio do navegador; envia token HttpOnly ao Worker por Authorization |
+| API | Cloudflare Workers | Valida sessão, tenant, papel e payload; statements D1 parametrizados |
+| Dados | Cloudflare D1 | `meditrica-dev`, `meditrica-staging`, `meditrica-prod`, cada qual com Worker próprio |
 
-- Repositório independente: `Salmeida-webdev/meditrica`.
-- Site Netlify: `meditrica.netlify.app`, na conta de publicação indicada pelo proprietário.
-- Ambientes D1 separados: `meditrica-dev`, `meditrica-staging` e `meditrica-prod`.
-- Frontend público e painel web no Netlify; serviços de API e tarefas assíncronas no Cloudflare Workers.
-- Cloudflare D1 como banco relacional inicial, com migrações versionadas e aplicadas separadamente por ambiente. Validar carga, limites, concorrência e estratégia de crescimento antes de produção.
-- Documentos clínicos, quando implementados, em buckets R2 privados por ambiente; nunca em URLs públicas permanentes.
-- Nenhum dado clínico real será usado em desenvolvimento, demonstração ou homologação.
+Os três bancos contêm somente dados sintéticos. A instância `prod` serve exclusivamente a demonstração pública e não pode receber pacientes reais.
 
-## Separação de responsabilidades
+## Sessão e autenticação
 
-1. Landing e aplicação web não recebem credenciais privilegiadas do Cloudflare.
-2. Workers validam sessão, tenant, permissões e entrada em toda operação.
-3. Cada registro clínico fica vinculado a tenant e unidade; autorização sempre é aplicada no servidor.
-4. D1 recebe consultas parametrizadas por statements preparados. Migrações são auditáveis e reversíveis quando tecnicamente possível.
-5. R2 guarda anexos privados, com autorização curta e explícita para leitura/download.
-6. Filas Cloudflare ficam reservadas para lembretes, importações e tarefas demoradas, com idempotência, retry limitado e dead-letter quando apropriado.
+1. A página de login obtém o salt e o fator de custo do usuário demo.
+2. O navegador deriva um verificador com PBKDF2-HMAC-SHA256 e envia o verificador por TLS ao endpoint same-origin do Netlify.
+3. O Worker compara um HMAC desse verificador usando `AUTH_PEPPER` guardado no secret store com o verificador HMAC armazenado no D1. A senha não entra no repositório ou nos logs da aplicação.
+4. O Worker cria um token aleatório de sessão e grava somente seu SHA-256 no D1. O proxy guarda o token em cookie `Secure`, `HttpOnly`, `SameSite=Lax` por oito horas.
+5. Nas chamadas seguintes, o proxy encaminha o cookie como Bearer para o Worker; sessão, status de usuário e tenant são consultados no servidor. Logout revoga a sessão.
 
-## Reuso do Beauty Core
+O verificador enviado pelo navegador é uma credencial equivalente somente durante o transporte TLS. A página não deve receber scripts de terceiros ou dados reais sem uma revisão adicional de CSP e XSS.
 
-Reutilizar apenas componentes genéricos depois de revisão de código e dependências: tokens visuais, componentes, layout, formulários, padrões de sessão, papéis e trilhas de auditoria. Não copiar conteúdo, marca, identidade, modelos de estética, dados ou segredos. O backend NestJS/Prisma/PostgreSQL não é plug-and-play com D1; serviços e persistência precisam ser adaptados e revistos antes de migração.
+## Dados e permissões
 
-## Ambientes
+As tabelas modelam clínicas, unidades, usuários, sessões, tentativas de autenticação, pacientes fictícios, profissionais, agenda, registros demonstrativos, documentos, financeiro, convênios, estoque, fornecedores, comunicação, tarefas e auditoria. Tabelas operacionais têm `tenant_id`; consultas e gravações filtram pelo tenant obtido da sessão autenticada. As regras de recursos e papéis são definidas no Worker e negam acesso por padrão.
 
-| Ambiente | Banco | Dados | Uso |
-| --- | --- | --- | --- |
-| Desenvolvimento | meditrica-dev | Sintéticos | Desenvolvimento local |
-| Homologação | meditrica-staging | Sintéticos | Revisão de fluxos e releases |
-| Produção | meditrica-prod | Somente dados autorizados | Operação após gates de segurança |
+A função de arquivamento usa `is_archived`; as ações de criação, edição e arquivamento gravam actor, entidade e ação em `audit_events`. A trilha atual é adequada à demonstração, mas não é WORM nem auditoria imutável certificada.
 
-Segredos serão separados por ambiente e guardados no secret store do Worker ou provedor; nunca no Git, no bundle do navegador ou em variáveis públicas `NEXT_PUBLIC_*`.
+## Migrations e dados
 
-## Implantação
+- `migrations/0001_core.sql`: schema e índices.
+- `migrations/0002_demo_data.sql`: seed de dados sintéticos.
+- A conta de demonstração é provisionada separadamente; apenas o verificador, salt e fator de custo são gravados no D1.
+- As mesmas migrations são aplicadas de forma isolada em dev, staging e prod.
 
-Netlify deve publicar apenas artefatos do frontend. Workers e migrations têm pipeline separado e aprovação de release. Pull requests usarão previews sem dados reais. A publicação só será considerada concluída após ligação segura GitHub–Netlify, build com sucesso e verificação do domínio.
+## Limitações e gate de dados reais
 
-## Limite atual
+A demo não implementa MFA, recuperação de senha, convite de usuários, escolha entre tenants para e-mail duplicado, anexos privados, rotina de backup/restore, telemedicina, emissão fiscal, integrações oficiais ou gestão completa da plataforma. O módulo clínico tem registros sem conteúdo assistencial e documentos sem validade médica.
 
-Os três bancos foram criados, mas ainda não têm schema/migrations nem dados. Ainda não existem API, autenticação do produto, prontuário, agenda ou gestão clínica operacionais. O site Netlify está reservado, sem deploy publicado.
+Antes de dados reais: auditoria independente de autorização multi-tenant e sessões; revisão XSS/CSP; MFA e recuperação; gestão de segredos e rotação; backups e restauração ensaiada; avaliação LGPD, contratos e retenção; responsáveis clínicos e aprovação operacional; controles de incidente e observabilidade sem payload clínico.
