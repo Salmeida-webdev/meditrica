@@ -9,7 +9,7 @@
 
 ## Conteúdo sintético
 
-O seed usa nomes como “Pessoa Fictícia”, contatos `example.invalid`, códigos marcados `DEMO` e notas explicitamente sem conteúdo assistencial. A clínica, unidades, profissionais, agenda, financeiro, convênios, tarefas, indicadores e plano da plataforma são exemplos, sem referência a operações reais.
+O seed utiliza nomes, contatos `example.invalid`, códigos e situações criados exclusivamente para apresentação. A clínica, unidades, profissionais, agenda, prontuários sem conteúdo assistencial, documentos, financeiro, convênios, estoque, relacionamento, tarefas, indicadores e plano da plataforma são exemplos, sem referência a operações reais.
 
 ## Fluxos exercitáveis
 

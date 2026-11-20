@@ -31,6 +31,7 @@ A função de arquivamento usa `is_archived`; as ações de criação, edição 
 
 - `migrations/0001_core.sql`: schema e índices.
 - `migrations/0002_demo_data.sql`: seed de dados sintéticos.
+- `migrations/0003_expanded_demo_data.sql`: amplia os exemplos sintéticos dos fluxos operacionais.
 - A conta de demonstração é provisionada separadamente; apenas o verificador, salt e fator de custo são gravados no D1.
 - As mesmas migrations são aplicadas de forma isolada em dev, staging e prod.
 
