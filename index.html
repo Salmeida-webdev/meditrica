@@ -21,28 +21,130 @@
     @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:44px;gap:50px}.hero-copy{max-width:670px}.preview{max-width:630px;width:100%;margin:auto}.band-inner{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:600px){.wrap{width:min(100% - 32px,1160px)}.top{height:70px}.nav{display:none;position:absolute;z-index:3;left:16px;right:16px;top:65px;padding:18px;border-radius:16px;background:#fff;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:17px}.nav.open{display:flex}.nav .btn{text-align:center}.menu{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);background:#fff;border-radius:11px;color:var(--ink)}.hero{padding:36px 0 58px}.hero p{font-size:15px}.hero-actions .btn{width:100%}.preview{padding:15px;border-radius:18px}.p-grid{gap:6px}.metric{padding:9px}.metric strong{font-size:17px}.row{grid-template-columns:36px 1fr auto;padding:9px}.cards,.steps{grid-template-columns:1fr}.cards{gap:10px}.steps{gap:23px}section{padding:58px 0}.band{padding:54px 0}.checks{grid-template-columns:1fr}.cta{padding:27px;align-items:flex-start;flex-direction:column}.cta h2{font-size:27px}.foot{align-items:flex-start;flex-direction:column}.foot span:last-child{line-height:1.7}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+    /* Polished product-led presentation */
+    body{background:#fbf9f7;color:#292235}
+    .top{height:86px}
+    .brand{font-size:21px}
+    .brand-mark{width:38px;height:38px;border-radius:13px;box-shadow:0 7px 18px rgba(41,34,53,.16)}
+    .nav{gap:29px}
+    .hero{position:relative;isolation:isolate;padding-top:58px;padding-bottom:62px;gap:50px;min-height:620px}
+    .hero:before{content:"";position:absolute;z-index:-1;right:-140px;top:30px;width:720px;height:560px;background:radial-gradient(ellipse at 56% 46%,rgba(232,221,237,.8),rgba(248,243,242,.42) 47%,transparent 72%);pointer-events:none}
+    .hero-copy{position:relative;z-index:1}
+    .eyebrow{background:#f5e9e5;color:#8e5448;padding:8px 13px;font-size:10px;letter-spacing:.08em}
+    h1{font-size:clamp(48px,5.3vw,72px);line-height:1.01;max-width:590px;letter-spacing:-.065em;margin:23px 0 18px}
+    .hero p{font-size:16px;line-height:1.75;max-width:500px}
+    .hero-actions{gap:10px}
+    .btn{border-radius:11px;padding:14px 18px;box-shadow:0 8px 20px rgba(41,34,53,.08)}
+    .btn:hover{box-shadow:0 12px 26px rgba(41,34,53,.14)}
+    .btn.secondary{box-shadow:none}
+    .note{font-size:10px!important}
+    .preview{border-radius:23px;padding:20px;background:#fff;transform:rotate(0);box-shadow:0 30px 70px rgba(41,34,53,.16);border-color:#eee8ec}
+    .preview:before{inset:22px -20px -20px 26px;background:#e7dce9}
+    .p-head{padding-bottom:14px}
+    .p-title{font-size:13px}
+    .p-date{font-size:9px;letter-spacing:.05em}
+    .metric{background:#faf8fa;border:1px solid #f0ebf1;padding:14px}
+    .metric strong{font-size:23px}
+    .appointments{border-radius:14px}
+    .row{padding:12px 13px;font-size:11px}
+    .signal{width:min(1160px,calc(100% - 48px));margin:0 auto 25px;display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:1px solid var(--line);border-radius:17px;box-shadow:0 14px 42px rgba(41,34,53,.06)}
+    .signal-item{padding:19px 24px;display:flex;align-items:center;gap:13px}
+    .signal-item+.signal-item{border-left:1px solid var(--line)}
+    .signal-icon{width:36px;height:36px;border-radius:12px;background:#f2edf4;color:#604e6c;display:grid;place-items:center;font-weight:800}
+    .signal-item strong{display:block;font-size:12px}
+    .signal-item small{display:block;color:#817a86;font-size:10px;margin-top:2px}
+    section{padding:86px 0}
+    .section-head{margin-bottom:39px}
+    h2{font-size:clamp(32px,3.7vw,46px)}
+    .section-head p{font-size:14px;line-height:1.7}
+    .features{background:#fff}
+    .cards{gap:16px}
+    .card{padding:24px;border-radius:18px;min-height:186px;transition:transform .2s,border-color .2s,box-shadow .2s}
+    .card:hover{transform:translateY(-4px);border-color:#dcd1e0;box-shadow:0 16px 30px rgba(41,34,53,.07)}
+    .icon{width:43px;height:43px;background:#f1ebf3;border-radius:13px;color:#65536f;font-size:21px}
+    .card h3{font-size:15px}
+    .card p{font-size:12px;line-height:1.75}
+    .band{padding:76px 0;background:#292235}
+    .band h2{max-width:530px}
+    .checks{gap:16px}
+    .check{font-size:11px;line-height:1.6}
+    .steps{gap:26px}
+    .step{padding:19px 18px 20px;background:#fff;border:1px solid #ebe5eb;border-radius:16px}
+    .step h3{font-size:16px}
+    .step p{font-size:12px;line-height:1.75}
+    .cta{border-radius:22px;padding:43px;background:linear-gradient(115deg,#f1eaf3,#f7edeb)}
+    .cta h2{font-size:34px}
+    footer{background:#fbf9f7}
+    @media(max-width:850px){.hero{min-height:auto;padding-top:40px}.hero:before{right:-50px;top:0;width:620px;height:520px}.signal{margin-bottom:8px}}
+    @media(max-width:600px){.top{height:70px}.hero{padding-top:38px;padding-bottom:48px;gap:39px}.hero:before{right:-180px;top:90px;width:560px;height:450px}.hero h1{font-size:clamp(43px,12vw,58px)}.signal{width:calc(100% - 32px);grid-template-columns:1fr}.signal-item{padding:14px 17px}.signal-item+.signal-item{border-left:0;border-top:1px solid var(--line)}section{padding:62px 0}.card{min-height:0;padding:21px}.step{padding:17px}.cta{padding:27px}.cta h2{font-size:27px}}
+    @media(max-width:940px){
+      .top{position:relative;height:76px}
+      .menu{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:12px;color:var(--ink)}
+      .nav{display:none;position:absolute;z-index:5;left:0;right:0;top:calc(100% + 8px);padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:14px}
+      .nav.open{display:flex}
+      .nav a:not(.btn){padding:8px 4px}
+      .nav .btn{width:100%;text-align:center}
+    }
+    @media(max-width:600px){
+      .wrap{width:min(100% - 32px,1160px)}
+      .top{height:70px}
+      .hero{grid-template-columns:minmax(0,1fr);min-height:0;padding:38px 0 48px;gap:36px}
+      .hero:before{right:-180px;top:90px;width:560px;height:450px}
+      .hero h1{font-size:clamp(43px,12vw,58px)}
+      .hero-copy,.preview{min-width:0}
+      .preview{padding:15px;border-radius:18px}
+      .p-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+      .metric{min-width:0;padding:9px}
+      .metric strong{font-size:clamp(16px,5vw,20px)}
+      .metric span,.metric em{font-size:8px}
+      .appointments{min-width:0}
+      .row{grid-template-columns:38px minmax(0,1fr);gap:7px;padding:10px}
+      .row .tag{grid-column:2;justify-self:start}
+      .patient{min-width:0}
+      .cards,.steps{grid-template-columns:1fr}
+      .cards{gap:10px}
+      section{padding:58px 0}
+      .checks{grid-template-columns:1fr}
+      .cta{padding:27px;align-items:flex-start;flex-direction:column}
+      .cta h2{font-size:27px}
+      .foot{align-items:flex-start;flex-direction:column}
+      .foot span:last-child{line-height:1.7}
+    }
+    @media(max-width:380px){
+      .wrap{width:calc(100% - 28px)}
+      .hero h1{font-size:42px}
+      .preview{padding:12px}
+      .p-date{max-width:125px;text-align:right}
+      .metric{padding:8px 6px}
+      .row{font-size:9px}
+    }
   </style>
 </head>
 <body>
 <header class="wrap top">
   <a class="brand" href="#" aria-label="Medítrica, início"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V6l8 8 8-8v12M4 11h4m8 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>medítrica</a>
-  <nav class="nav" id="nav"><a href="#plataforma">Plataforma</a><a href="#gestao">Gestão integrada</a><a href="#jornada">Como evolui</a><a class="btn" href="#contato">Conhecer o projeto <span aria-hidden="true">↗</span></a></nav>
+  <nav class="nav" id="nav"><a href="#plataforma">Plataforma</a><a href="#gestao">Segurança</a><a href="#jornada">Como funciona</a><a class="btn" href="/login">Acessar demonstração <span aria-hidden="true">↗</span></a></nav>
   <button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">☰</button>
 </header>
 <main>
   <div class="wrap hero">
     <div class="hero-copy">
-      <span class="eyebrow"><i class="dot"></i> Gestão clínica em construção</span>
-      <h1>Mais clareza para gerir. Mais espaço para cuidar.</h1>
-      <p>Medítrica está sendo criada para conectar agenda, equipe, operação e gestão clínica em uma experiência organizada, humana e segura.</p>
-      <div class="hero-actions"><a class="btn" href="#plataforma">Ver a visão do produto <span aria-hidden="true">↓</span></a><a class="btn secondary" href="demo.html">Prévia do produto</a><a class="btn secondary" href="/login">Acessar gestão</a></div>
-      <p class="note">Prévia interativa com dados sintéticos. Acesse a área de gestão com a conta demonstrativa autorizada.</p>
+      <span class="eyebrow"><i class="dot"></i> Gestão clínica integrada</span>
+      <h1>A rotina da clínica, finalmente no mesmo ritmo.</h1>
+      <p>Agenda, pacientes e operação organizados em uma plataforma pensada para dar clareza à equipe e mais tranquilidade à gestão.</p>
+      <div class="hero-actions"><a class="btn" href="/login">Acessar demonstração <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#plataforma">Conhecer os módulos</a></div>
+      <p class="note">Demonstração interativa com dados fictícios. Não use para atendimento clínico.</p>
     </div>
     <div class="preview" aria-label="Prévia ilustrativa de painel de gestão, sem dados reais">
       <div class="p-head"><span class="p-title">Visão da clínica</span><span class="p-date">PRÉVIA ILUSTRATIVA · HOJE</span></div>
       <div class="p-grid"><div class="metric"><span>Consultas</span><strong>24</strong><em>agenda do dia</em></div><div class="metric"><span>Confirmações</span><strong>18</strong><em>fluxo organizado</em></div><div class="metric"><span>Ocupação</span><strong>82%</strong><em>visão operacional</em></div></div>
       <div class="appointments"><div class="appt-title">Agenda resumida <span style="color:#948d99;font-weight:500">sexta-feira</span></div><div class="row"><span class="time">08:30</span><span class="patient"><i class="avatar">AC</i> Atendimento 01</span><span class="tag">Confirmado</span></div><div class="row"><span class="time">09:15</span><span class="patient"><i class="avatar" style="background:#e9f1ed;color:#4c7867">B</i> Atendimento 02</span><span class="tag">Confirmado</span></div><div class="row"><span class="time">10:00</span><span class="patient"><i class="avatar" style="background:#f9eddf;color:#906327">C</i> Atendimento 03</span><span class="tag pending">A confirmar</span></div><div class="row"><span class="time">10:45</span><span class="patient"><i class="avatar" style="background:#e9edf7;color:#566786">D</i> Atendimento 04</span><span class="tag">Confirmado</span></div></div>
     </div>
+  </div>
+  <div class="signal" aria-label="Princípios da plataforma">
+    <div class="signal-item"><span class="signal-icon">↗</span><span><strong>Fluxos conectados</strong><small>Operação organizada em um só ambiente</small></span></div>
+    <div class="signal-item"><span class="signal-icon">✓</span><span><strong>Rotina mais clara</strong><small>Informações e tarefas no contexto certo</small></span></div>
+    <div class="signal-item"><span class="signal-icon">◇</span><span><strong>Privacidade desde a base</strong><small>Acesso e rastreabilidade considerados no produto</small></span></div>
   </div>
   <section class="features" id="plataforma">
     <div class="wrap"><div class="section-head"><span class="eyebrow">Uma operação conectada</span><h2>A clínica inteira, com cada etapa no lugar.</h2><p>Uma visão integrada para reduzir retrabalho e dar à equipe contexto para agir com mais segurança.</p></div>
@@ -56,15 +158,18 @@
       </div>
     </div>
   </section>
-  <section id="gestao"><div class="wrap band-inner"><div><span class="eyebrow">Gestão com responsabilidade</span><h2>Segurança faz parte da experiência.</h2><p>O produto está sendo planejado para tratar informações clínicas com controles de acesso, rastreabilidade e privacidade como requisitos de base — antes da entrada de dados reais.</p></div><div class="checks"><div class="check"><b>✓</b><span>Ambientes de desenvolvimento, homologação e produção separados.</span></div><div class="check"><b>✓</b><span>Permissões verificadas no servidor e acesso mínimo por função.</span></div><div class="check"><b>✓</b><span>Auditoria de ações relevantes e trilha de autoria.</span></div><div class="check"><b>✓</b><span>Dados demonstrativos sem identificação de pacientes reais.</span></div></div></div></section>
+  <section class="band" id="gestao"><div class="wrap band-inner"><div><span class="eyebrow">Gestão com responsabilidade</span><h2>Segurança faz parte da experiência.</h2><p>A demonstração já separa ambientes, verifica permissões no servidor e registra ações administrativas. Os registros são sintéticos e o sistema não deve receber dados clínicos reais.</p></div><div class="checks"><div class="check"><b>✓</b><span>Ambientes de desenvolvimento, homologação e produção separados.</span></div><div class="check"><b>✓</b><span>Permissões verificadas no servidor e acesso mínimo por função.</span></div><div class="check"><b>✓</b><span>Auditoria de ações relevantes e trilha de autoria.</span></div><div class="check"><b>✓</b><span>Dados demonstrativos sem identificação de pacientes reais.</span></div></div></div></section>
   <section id="jornada"><div class="wrap"><div class="section-head"><span class="eyebrow">Construção por etapas</span><h2>Começar com uma base sólida.</h2><p>O desenvolvimento avança por fluxos completos, com validação antes de ampliar escopo.</p></div><div class="steps"><article class="step"><small>01 · FUNDAÇÃO</small><h3>Segurança e estrutura</h3><p>Identidade, arquitetura, controle de acesso, clínicas, unidades e trilha de auditoria.</p></article><article class="step"><small>02 · OPERAÇÃO</small><h3>Fluxos essenciais</h3><p>Pacientes, agenda, recepção, prontuário inicial, documentos e caixa básico.</p></article><article class="step"><small>03 · EXPANSÃO</small><h3>Gestão ampliada</h3><p>Portal, comunicação, estoque, integrações e administração da plataforma, conforme validação.</p></article></div></div></section>
-  <section id="contato"><div class="wrap cta"><div><h2>Medítrica está tomando forma.</h2><p>Explore a demonstração interativa com dados fictícios. Acesse a gestão demonstrativa com a conta autorizada.</p></div><a class="btn" href="/login">Acessar gestão <span aria-hidden="true">↗</span></a></div></section>
+  <section id="contato"><div class="wrap cta"><div><h2>Conheça a rotina da clínica por dentro.</h2><p>Explore a demonstração interativa com dados fictícios. Acesse a gestão demonstrativa com a conta autorizada.</p></div><a class="btn" href="/login">Acessar gestão <span aria-hidden="true">↗</span></a></div></section>
 </main>
 <footer><div class="wrap foot"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 18V6l8 8 8-8v12M4 11h4m8 0h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>medítrica</a><span>© 2026 Medítrica · Produto em desenvolvimento. Não utilizar para atendimento clínico.</span></div></footer>
 <script>
   const menu=document.querySelector("#menu"),nav=document.querySelector("#nav");
-  menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Fechar menu":"Abrir menu")});
-  nav.addEventListener("click",e=>{if(e.target.closest("a")){nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.setAttribute("aria-label","Abrir menu")}});
+  const setMenu=open=>{const wasOpen=nav.classList.contains("open");nav.classList.toggle("open",open);menu.setAttribute("aria-expanded",String(open));menu.setAttribute("aria-label",open?"Fechar menu":"Abrir menu");if(open)nav.querySelector("a")?.focus();else if(wasOpen)menu.focus()};
+  menu.addEventListener("click",()=>setMenu(!nav.classList.contains("open")));
+  nav.addEventListener("click",e=>{if(e.target.closest("a")&&nav.classList.contains("open"))setMenu(false)});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&nav.classList.contains("open"))setMenu(false)});
+  document.addEventListener("click",e=>{if(nav.classList.contains("open")&&!e.target.closest(".top"))setMenu(false)});
 </script>
 </body>
 </html>
