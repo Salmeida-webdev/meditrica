@@ -51,6 +51,7 @@
     .signal-item{padding:19px 24px;display:flex;align-items:center;gap:13px}
     .signal-item+.signal-item{border-left:1px solid var(--line)}
     .signal-icon{width:36px;height:36px;border-radius:12px;background:#f2edf4;color:#604e6c;display:grid;place-items:center;font-weight:800}
+    .signal-icon svg,.btn-arrow{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .signal-item strong{display:block;font-size:12px}
     .signal-item small{display:block;color:#817a86;font-size:10px;margin-top:2px}
     section{padding:86px 0}
@@ -141,7 +142,7 @@
 <body>
 <header class="wrap top">
   <a class="brand" href="#" aria-label="Medítrica, início"><img src="/assets/meditrica-logo.webp" alt="Medítrica" width="2077" height="494"></a>
-  <nav class="nav" id="nav"><a href="#plataforma">Plataforma</a><a href="#gestao">Segurança</a><a href="#jornada">Como funciona</a><a class="btn" href="/login">Acessar painel <span aria-hidden="true">↗</span></a></nav>
+  <nav class="nav" id="nav"><a href="#plataforma">Plataforma</a><a href="#gestao">Segurança</a><a href="#jornada">Como funciona</a><a class="btn" href="/login">Acessar painel <svg class="btn-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M6 5h9v9"/></svg></a></nav>
   <button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">☰</button>
 </header>
 <main>
@@ -150,7 +151,7 @@
       <span class="eyebrow"><i class="dot"></i> Gestão clínica integrada</span>
       <h1>Gestão que acompanha o ritmo de quem cuida.</h1>
       <p>Agenda, pacientes e operação organizados em uma plataforma pensada para dar clareza à equipe e mais tranquilidade à gestão.</p>
-      <div class="hero-actions"><a class="btn" href="/login">Acessar painel <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#plataforma">Conhecer a plataforma</a></div>
+      <div class="hero-actions"><a class="btn" href="/login">Acessar painel <svg class="btn-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M6 5h9v9"/></svg></a><a class="btn secondary" href="#plataforma">Conhecer a plataforma</a></div>
       <p class="note">Agenda, equipe e operação conectadas em uma experiência clara para toda a clínica.</p>
     </div>
     <div class="preview" aria-label="Painel da clínica">
@@ -160,9 +161,9 @@
     </div>
   </div>
   <div class="signal" aria-label="Princípios da plataforma">
-    <div class="signal-item"><span class="signal-icon">↗</span><span><strong>Fluxos conectados</strong><small>Operação organizada em um só ambiente</small></span></div>
-    <div class="signal-item"><span class="signal-icon">✓</span><span><strong>Rotina mais clara</strong><small>Informações e tarefas no contexto certo</small></span></div>
-    <div class="signal-item"><span class="signal-icon">◇</span><span><strong>Privacidade desde a base</strong><small>Acesso e rastreabilidade considerados no produto</small></span></div>
+    <div class="signal-item"><span class="signal-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 7h10v10H7zM4 12h3m10 0h3M12 4v3m0 10v3"/></svg></span><span><strong>Fluxos conectados</strong><small>Operação organizada em um só ambiente</small></span></div>
+    <div class="signal-item"><span class="signal-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg></span><span><strong>Rotina mais clara</strong><small>Informações e tarefas no contexto certo</small></span></div>
+    <div class="signal-item"><span class="signal-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 19 6v5c0 4.4-2.8 8-7 10-4.2-2-7-5.6-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><span><strong>Privacidade desde a base</strong><small>Acesso e rastreabilidade considerados no produto</small></span></div>
   </div>
   <section class="features" id="plataforma">
     <div class="wrap"><div class="section-head"><span class="eyebrow">Uma operação conectada</span><h2>A clínica inteira, com cada etapa no lugar.</h2><p>Uma visão integrada para reduzir retrabalho e dar à equipe contexto para agir com mais segurança.</p></div>
@@ -178,7 +179,7 @@
   </section>
   <section class="band" id="gestao"><div class="wrap band-inner"><div><span class="eyebrow">Gestão com responsabilidade</span><h2>Segurança faz parte da experiência.</h2><p>Cada módulo foi pensado para dar contexto à equipe, organizar responsabilidades e tornar a gestão mais clara.</p></div><div class="checks"><div class="check"><b>✓</b><span>Ambientes de desenvolvimento, homologação e produção separados.</span></div><div class="check"><b>✓</b><span>Permissões verificadas no servidor e acesso mínimo por função.</span></div><div class="check"><b>✓</b><span>Auditoria de ações relevantes e trilha de autoria.</span></div><div class="check"><b>✓</b><span>Privacidade considerada desde o desenho dos fluxos.</span></div></div></div></section>
   <section id="jornada"><div class="wrap"><div class="section-head"><span class="eyebrow">Construção por etapas</span><h2>Começar com uma base sólida.</h2><p>O desenvolvimento avança por fluxos completos, com validação antes de ampliar escopo.</p></div><div class="steps"><article class="step"><small>01 · FUNDAÇÃO</small><h3>Segurança e estrutura</h3><p>Identidade, arquitetura, controle de acesso, clínicas, unidades e trilha de auditoria.</p></article><article class="step"><small>02 · OPERAÇÃO</small><h3>Fluxos essenciais</h3><p>Pacientes, agenda, recepção, prontuário inicial, documentos e caixa básico.</p></article><article class="step"><small>03 · EXPANSÃO</small><h3>Gestão ampliada</h3><p>Portal, comunicação, estoque, integrações e administração da plataforma, conforme validação.</p></article></div></div></section>
-  <section id="contato"><div class="wrap cta"><div><h2>Conheça a rotina da clínica por dentro.</h2><p>Conheça os módulos e a estrutura de gestão da Medítrica.</p></div><a class="btn" href="/login">Acessar painel <span aria-hidden="true">↗</span></a></div></section>
+  <section id="contato"><div class="wrap cta"><div><h2>Conheça a rotina da clínica por dentro.</h2><p>Conheça os módulos e a estrutura de gestão da Medítrica.</p></div><a class="btn" href="/login">Acessar painel <svg class="btn-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M5 15 15 5M6 5h9v9"/></svg></a></div></section>
 </main>
 <footer><div class="wrap foot"><a class="brand" href="#" aria-label="Medítrica, início"><img src="/assets/meditrica-logo.webp" alt="Medítrica" width="2077" height="494"></a><span>© 2026 Medítrica · Gestão clínica integrada.</span></div></footer>
 <script>
