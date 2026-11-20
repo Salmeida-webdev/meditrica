@@ -13,9 +13,11 @@ Plataforma SaaS brasileira para gestão integrada de clínicas médicas.
 ## Estrutura atual
 
 - `index.html`: landing page responsiva inicial.
+- `demo.html`: prévia interativa e somente demonstrativa com agenda, pacientes, registros, financeiro, convênios, estoque, equipe, relacionamento e análise de indicadores.
 - `docs/ARCHITECTURE.md`: decisões técnicas e limites atuais.
 - `docs/SECURITY_BASELINE.md`: controles obrigatórios antes de dados reais.
 - `docs/ROADMAP.md`: etapas do produto.
+- `docs/METRIC_DEFINITIONS.md`: definições iniciais dos KPIs.
 
 ## Publicação
 
